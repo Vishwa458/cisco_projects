@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+spawn telnet $hostName      #Eshtablishing telnet session
+
+read localpath
+enter "remote ip address"
+read ip
+
+telnet $ip
+
+echo "Enter the number files to be created: "
+read n
+echo "Enter the folder name where files to be zipped: "
+read file
+mkdir $file                                #creating folder to store files
+cd $file
+for i in $n
+do
+  touch text[i].text                      #creating files
+done
+
+zip -r $file.zip                          #zipping folder
+
+scp username@$ip/pwd $localpath           #Copyting folder to local machine, Downloading files
+
+unzip $file.zip                           #unzipping folder

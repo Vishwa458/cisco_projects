@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+restart = "/etc/init.d/apache2 restart"
+pgrep="/usr/bin/pgrep"
+
+$pgrep ${httpd}        #find the httpd PID
+
+if [ $? -ne 0]         #checking server if not running because of load
+  then
+    $restart           #Restart apache server
+fi
+
