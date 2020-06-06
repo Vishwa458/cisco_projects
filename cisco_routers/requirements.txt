@@ -1,0 +1,4 @@
+django>2
+djangorestframework==3.8.0
+django-import-export
+django-macaddress
