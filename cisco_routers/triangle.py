@@ -1,17 +1,9 @@
-import graphics
-import random
-win=graphics.GraphWin("Exercise 7",500,500)
-win.setBackground("white")
-for i in range(1000):
-    x=random.randint(0,500)
-    y=random.randint(0,500)
-    z=random.randint(1,100)
-    point = graphics.Point(x,y)
-    circle=graphics.Circle(point,z)
-    colour=graphics.color_rgb(random.randint(0,255),
-                              random.randint(0,255),
-                              random.randint(0,255))
-    circle.setFill(colour)
-    circle.draw(win)
-win.getMouse()
-win.close()
+from math import random
+vertices = []
+for i in range(3):                         # Do this 3 times
+    x = random.randint(0, 500)             # Create a random x value
+    y = random.randint(0, 500)             # Create a random y value
+    vertices.append(graphics.Point(x, y))  # Add the (x, y) point to the vertices
+triangle = graphics.Polygon(vertices)      # Create the triangle
+triangle.setFill(colour)
+triangle.draw(win)
